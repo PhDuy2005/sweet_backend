@@ -7,6 +7,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.stereotype.Service;
 
+import com.example.sweet.database.repository.dto.PhieuDaoHanDTO;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -16,9 +19,9 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class PhieuDaoHan {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
-    private int phieuDaoHanID;
+    private Long phieuDaoHanID;
     @ManyToOne
     @JoinColumn(name = "phieu_gui_tien_ky_truoc", nullable = false)
     private PhieuGuiTien phieuGuiTienKyTruoc;
@@ -27,5 +30,10 @@ public class PhieuDaoHan {
     private PhieuGuiTien phieuGuiTienTiepTheo;
 
     private LocalDateTime ngayDaoHan;
+
+    PhieuDaoHan(PhieuDaoHanDTO phieuDaoHanDTO) {
+
+        this.ngayDaoHan = LocalDateTime.now();
+    }
 
 }

@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PhieuDaoHanRepository extends CrudRepository<PhieuDaoHan, Integer> {
+    boolean existsByPhieuGuiTienKyTruoc(Long phieuGuiTienKyTruocId);
 }
